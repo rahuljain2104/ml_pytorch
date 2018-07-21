@@ -45,26 +45,26 @@ class DNN_Model(nn.Module):
 model = DNN_Model(num_input, hidden_layers, num_output)
 criterion = nn.CrossEntropyLoss()
 optimizer = th.optim.Adagrad(model.parameters(), lr = learning_rate)
-#
-# for i in range(epoch):
-#     for j in range(int(len(x_train)/batch_size)):
-#         x_batch = th.Tensor(x_train[j*batch_size:(j+1)*batch_size])
-#         y_batch = th.Tensor(y_train[j*batch_size:(j+1)*batch_size]).long()
-#         # if len(x_train[j*batch_size:(j+1)*batch_size]) == 0:
-#         #     continue
-#         y_predicted = model(x_batch)
-#         loss = criterion(y_predicted, y_batch)
-#         optimizer.zero_grad()
-#         loss.backward()
-#         optimizer.step()
-#
-#         if (j + 1) % 100 == 0:
-#             print('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}'
-#                   .format(i + 1, epoch, j + 1, int(len(x_train)/batch_size), loss.item()))
-#
-#
-# th.save(model.state_dict(), 'model_dnn_state.ckpt')
-# th.save(model, 'model_dnn.ckpt')
+
+for i in range(epoch):
+    for j in range(int(len(x_train)/batch_size)):
+        x_batch = th.Tensor(x_train[j*batch_size:(j+1)*batch_size])
+        y_batch = th.Tensor(y_train[j*batch_size:(j+1)*batch_size]).long()
+        # if len(x_train[j*batch_size:(j+1)*batch_size]) == 0:
+        #     continue
+        y_predicted = model(x_batch)
+        loss = criterion(y_predicted, y_batch)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if (j + 1) % 100 == 0:
+            print('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}'
+                  .format(i + 1, epoch, j + 1, int(len(x_train)/batch_size), loss.item()))
+
+
+th.save(model.state_dict(), 'model_dnn_state.ckpt')
+th.save(model, 'model_dnn.ckpt')
 
 # testing
 model.load_state_dict(th.load('model_dnn_state.ckpt'))
