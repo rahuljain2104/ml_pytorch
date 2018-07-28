@@ -15,9 +15,11 @@ from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(features, label, test_size=0.3)
 
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import SGDClassifier
 
 # import model - from sklearn - knn
 knn = KNeighborsClassifier(n_neighbors=7)
+
 # fit model
 knn.fit(x_train, y_train)
 
