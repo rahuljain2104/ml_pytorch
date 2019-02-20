@@ -54,7 +54,7 @@ dataset = {
               ],
     'author':[
               "gandhi","gandhi","gandhi","gandhi","gandhi","gandhi","gandhi","gandhi",
-              "osho", "osho", "osho", "osho", "osho", "osho", "osho", "osho", "osho", "osho", "osho", "osho"
+              "teresa", "teresa", "teresa", "teresa", "teresa", "teresa", "teresa", "teresa", "teresa", "teresa", "teresa", "teresa"
     ]
 }
 
